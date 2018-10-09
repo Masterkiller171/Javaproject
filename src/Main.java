@@ -16,7 +16,7 @@ public class Main {
         Scanner read = new Scanner(System.in);
         while (true) {
             //User could choose among these parameters: game, encrypt, dencrypt and openfile
-            System.out.println("Do want to generate a password or play a game or encrypt or dencrypt or openfile or quit?");
+            System.out.println("Do want to generate a password or play a game or encrypt or dencrypt or openfile or draw quit?");
             String reader = read.nextLine();
             if (reader.equals("password")) {
                 System.out.println("What's the website or company?");
@@ -108,6 +108,9 @@ public class Main {
             }
             else if (reader.equals("quit")){
                 break;
+            }else if (reader.equals("draw")){
+                      draw draw = new draw();
+                      draw.controlGUI();
             }
         }
     }
