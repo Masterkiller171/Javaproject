@@ -111,7 +111,6 @@ public class Main {
             }else if (reader.equals("draw")){
                       draw draw = new draw();
                       draw.controlGUI();
-                      draw.buildGUIContent();
             }
         }
     }

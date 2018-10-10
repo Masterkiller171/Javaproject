@@ -1,6 +1,9 @@
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class draw{
+public class draw {
     private long value = 0;
     private Label lb;
     private Button but;
@@ -10,40 +13,54 @@ public class draw{
 
     public void controlGUI(){
         buildGUI();
-
+        buildClickGUI();
     }
 
     private void buildGUI(){
 
         f.setSize(1000,1000);
-        f.setLayout(new GridLayout(7, 1));
+        f.setLayout(new GridLayout(7, 2));
         f.setVisible(true);
     }
 
-    public void buildGUIContent(){
+    private void buildClickGUI(){
 
-            lb = new Label();
+            lb = new Label("click");
             but = new Button("click dis");
-            clckmulti = new Button("buy Click multiplier, cost: " + shop.getMuliplierPrice(new draw()) + " Multiplier: " + shop.getMultiplier(new draw()));
+            but.setBackground(Color.red);
             lb.setAlignment(1);
-            but.setActionCommand("click");
-            clckmulti.setActionCommand("multi");
-            test();
-            f.add(but);
             f.add(lb);
-            f.add(clckmulti);
-        }
-        private void test() {
-            if (but.getActionCommand().equals("click")) {
+            f.add(but);
 
-                lb.setText("Clicks: " + value);
-            } else if (clckmulti.getActionCommand().equals("multi")) {
-
-            }
+        clckmulti = new Button("Buy Click multiplier, cost: " + shop.getMuliplierPrice() + " Multiplier: " + shop.getMultiplier());
+        f.add(clckmulti);
+        but.addActionListener(this::actionPerformed);
+        clckmulti.addActionListener(new shopper());
         }
 
-    public long getValue() {
-        return value;
+    private void actionPerformed(ActionEvent e){
+        e.getActionCommand();
+        lb.setText("clicks: " + getValue());
+        value += shop.getMultiplier();
     }
 
+    public long getValue() {
+        return this.value;
+    }
+    public void setValue(Long value){
+     this.value = value;
+    }
+}
+
+class shopper implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+        drawShop shop = new drawShop();
+        e.getActionCommand();
+        draw draw = new draw();
+
+        if(draw.getValue() > shop.getMuliplierPrice()) {
+            shop.upDateMuliplier(draw.getValue());
+            draw.setValue(draw.getValue() - shop.getMuliplierPrice());
+        }
+    }
 }

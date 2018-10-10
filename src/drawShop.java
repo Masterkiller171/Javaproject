@@ -1,20 +1,20 @@
 public class drawShop {
     private int multiplier = 1;
     private int muliplierPrice = 10;
-    private long value;
 
-    public int getMultiplier(draw draw) {
-        this.value = draw.getValue();
-        value *= this.multiplier;
-        return multiplier;
-    }
+    public long upDateMuliplier(long value) {
 
-    public int getMuliplierPrice(draw draw) {
-        if (draw.getValue() > 10) {
-            this.value = draw.getValue();
              value -= this.muliplierPrice;
             muliplierPrice *= 2;
-        }
+            this.multiplier++;
+        return value;
+    }
+
+    public int getMuliplierPrice() {
         return muliplierPrice;
+    }
+
+    public int getMultiplier() {
+        return multiplier;
     }
 }
