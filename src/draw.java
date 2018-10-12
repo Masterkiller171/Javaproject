@@ -26,8 +26,8 @@ public class draw {
 //Building the grid of the GUI
     private void buildGUI(){
         p = new JFrame("clicker");
-        p.setSize(1000,1000);
-        p.setLayout(new GridBagLayout());
+        p.setSize(1000,500);
+        p.setLayout(new GridLayout(0,2));
         p.setVisible(true);
 
     }
@@ -38,7 +38,7 @@ public class draw {
 
         lb = new JLabel("click");
         but = new JButton("click dis");
-        stats = new JLabel("Total clicks: " + this.totalValue + " multiplier level: " + this.multiplier + " Doubler level: " + this.doubles + " Points per click: " + multiplier*doubles);
+        stats = new JLabel("Total coins: " + this.totalValue + " multiplier level: " + this.multiplier + " Doubler level: " + this.doubles + " Points per click: " + Math.pow(multiplier, doubles));
         p.add(lb);
         p.add(stats);
         p.add(but);
@@ -68,42 +68,42 @@ public class draw {
         if(e.getSource() == but){
             lb.setText("clicks: " + this.value);
 
-            value += this.multiplier * this.doubles;
-            totalValue += (multiplier * doubles);
-            stats.setText("<html> Total clicks: "
+            value += Math.pow(this.multiplier, this.doubles);
+            totalValue += Math.pow(multiplier, doubles);
+            stats.setText("<html> Total coins: "
                     + this.totalValue + "<br/> Multiplier level: "
                     + this.multiplier + "<br/> Doubler level: "
                     + this.doubles + "<br/> Points per click: "
-                    + multiplier*doubles + "</html>");
+                    + Math.pow(multiplier, doubles) + "</html>");
 
         }else if(e.getSource() == clckmulti){
             if(this.value > this.muliplierPrice) {
 
                 value -= this.muliplierPrice;
-                muliplierPrice *= 2;
+                muliplierPrice *= 12;
                 this.multiplier++;
 
                 lb.setText("clicks: " + this.value);
                 clckmulti.setText("Buy Click multiplier, cost: " + this.muliplierPrice + " Multiplier: " + this.multiplier);
-                stats.setText("<html> Total clicks: " + this.totalValue +
+                stats.setText("<html> Total coins: " + this.totalValue +
                         "<br/> Multiplier level: " + this.multiplier +
                         "<br/> Doubler level: " + this.doubles +
-                        "<br/> Points per click: " + multiplier*doubles +
+                        "<br/> Points per click: " + Math.pow(multiplier, doubles) +
                         " </html>");
             }
             }else if(e.getSource() == doubler){
                 if(this.value > this.doublePrice) {
 
                     value -= this.doublePrice;
-                    doublePrice *= 4;
+                    doublePrice *= 20;
                     this.doubles++;
 
                     lb.setText("clicks: " + this.value);
                     doubler.setText("Doubles the current multiplier, cost: " + doublePrice + " doubler level: " + this.doubles);
-                    stats.setText("<html> Total clicks: " + this.totalValue +
+                    stats.setText("<html> Total coins: " + this.totalValue +
                             "<br/> Multiplier level: " + this.multiplier +
                             "<br/> Doubler level: " + this.doubles +
-                            "<br/> Points per click: " + multiplier*doubles +
+                            "<br/> Points per click: " + Math.pow(multiplier, doubles) +
                             " </html>");
                 }
             }
