@@ -27,11 +27,8 @@ public class draw {
     private void buildGUI(){
         p = new JFrame("clicker");
         p.setSize(1000,1000);
-        p.setLayout(new GridLayout(0, 2));
+        p.setLayout(new GridBagLayout());
         p.setVisible(true);
-
-        Panel = new JPanel();
-        Panel.setLayout(new FlowLayout());
 
     }
 
@@ -41,15 +38,21 @@ public class draw {
 
         lb = new JLabel("click");
         but = new JButton("click dis");
-        stats = new JLabel("Total clicks: " + this.totalValue + " multiplier level: " + this.multiplier + " Doubler level: " + this.doubles);
+        stats = new JLabel("Total clicks: " + this.totalValue + " multiplier level: " + this.multiplier + " Doubler level: " + this.doubles + " Points per click: " + multiplier*doubles);
         p.add(lb);
         p.add(stats);
         p.add(but);
 
-        clckmulti = new JButton("Buy Click multiplier, cost: " + this.muliplierPrice + " Multiplier: " + this.multiplier);
+        clckmulti = new JButton("Buy Click multiplier, cost: "
+                + this.muliplierPrice + " Multiplier: "
+                + this.multiplier);
+
         p.add(clckmulti);
 
-        doubler = new JButton("Doubles the current multiplier, cost: " + this.doublePrice + " doubler level: " + this.doubles);
+        doubler = new JButton("Doubles the current multiplier, cost: "
+                + this.doublePrice + " doubler level: "
+                + this.doubles);
+
         p.add(doubler);
 
         gamble = new JButton("Gamble");
@@ -67,29 +70,41 @@ public class draw {
 
             value += this.multiplier * this.doubles;
             totalValue += (multiplier * doubles);
-            stats.setText("<html> Total clicks: " + this.totalValue + "<br/> Multiplier level: " + this.multiplier + "<br/> Doubler level: " + this.doubles +" </html>");
+            stats.setText("<html> Total clicks: "
+                    + this.totalValue + "<br/> Multiplier level: "
+                    + this.multiplier + "<br/> Doubler level: "
+                    + this.doubles + "<br/> Points per click: "
+                    + multiplier*doubles + "</html>");
 
         }else if(e.getSource() == clckmulti){
             if(this.value > this.muliplierPrice) {
 
                 value -= this.muliplierPrice;
-                muliplierPrice *= 4;
+                muliplierPrice *= 2;
                 this.multiplier++;
 
                 lb.setText("clicks: " + this.value);
                 clckmulti.setText("Buy Click multiplier, cost: " + this.muliplierPrice + " Multiplier: " + this.multiplier);
-                stats.setText("<html> Total clicks: " + this.totalValue + "<br/> Multiplier level: " + this.multiplier + "<br/> Doubler level: " + this.doubles +" </html>");
+                stats.setText("<html> Total clicks: " + this.totalValue +
+                        "<br/> Multiplier level: " + this.multiplier +
+                        "<br/> Doubler level: " + this.doubles +
+                        "<br/> Points per click: " + multiplier*doubles +
+                        " </html>");
             }
             }else if(e.getSource() == doubler){
                 if(this.value > this.doublePrice) {
 
                     value -= this.doublePrice;
-                    doublePrice *= 6;
+                    doublePrice *= 4;
                     this.doubles++;
 
                     lb.setText("clicks: " + this.value);
                     doubler.setText("Doubles the current multiplier, cost: " + doublePrice + " doubler level: " + this.doubles);
-                    stats.setText("<html> Total clicks: " + this.totalValue + "<br/> Multiplier level: " + this.multiplier + "<br/> Doubler level: " + this.doubles +" </html>");
+                    stats.setText("<html> Total clicks: " + this.totalValue +
+                            "<br/> Multiplier level: " + this.multiplier +
+                            "<br/> Doubler level: " + this.doubles +
+                            "<br/> Points per click: " + multiplier*doubles +
+                            " </html>");
                 }
             }
         }
