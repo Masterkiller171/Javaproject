@@ -41,7 +41,7 @@ public class draw {
 
         lb = new JLabel("click");
         but = new JButton("click dis");
-        stats = new JLabel("<html> Total clicks: " + this.totalValue + "<br> multiplier level: " + this.multiplier + " </html>");
+        stats = new JLabel("Total clicks: " + this.totalValue + " multiplier level: " + this.multiplier + " Doubler level: " + this.doubles);
         p.add(lb);
         p.add(stats);
         p.add(but);
@@ -66,28 +66,31 @@ public class draw {
             lb.setText("clicks: " + this.value);
 
             value += this.multiplier * this.doubles;
-            totalValue += multiplier * doubles;
-            stats.setText("<html> Total clicks: " + this.totalValue + "<br> multiplier level: " + this.multiplier + " </html>");
+            totalValue += (multiplier * doubles);
+            stats.setText("<html> Total clicks: " + this.totalValue + "<br/> Multiplier level: " + this.multiplier + "<br/> Doubler level: " + this.doubles +" </html>");
 
         }else if(e.getSource() == clckmulti){
             if(this.value > this.muliplierPrice) {
 
                 value -= this.muliplierPrice;
-                muliplierPrice *= 2;
+                muliplierPrice *= 4;
                 this.multiplier++;
 
                 lb.setText("clicks: " + this.value);
                 clckmulti.setText("Buy Click multiplier, cost: " + this.muliplierPrice + " Multiplier: " + this.multiplier);
-
+                stats.setText("<html> Total clicks: " + this.totalValue + "<br/> Multiplier level: " + this.multiplier + "<br/> Doubler level: " + this.doubles +" </html>");
+            }
             }else if(e.getSource() == doubler){
                 if(this.value > this.doublePrice) {
+
+                    value -= this.doublePrice;
+                    doublePrice *= 6;
                     this.doubles++;
-                    this.value -= this.doublePrice;
-                    doublePrice *= 3;
+
+                    lb.setText("clicks: " + this.value);
                     doubler.setText("Doubles the current multiplier, cost: " + doublePrice + " doubler level: " + this.doubles);
+                    stats.setText("<html> Total clicks: " + this.totalValue + "<br/> Multiplier level: " + this.multiplier + "<br/> Doubler level: " + this.doubles +" </html>");
                 }
             }
         }
-}
-
 }

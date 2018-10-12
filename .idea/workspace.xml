@@ -51,12 +51,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2426" />
+          <entry key="java" value="2562" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2426" />
+          <entry key="JAVA" value="2562" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -85,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/draw.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="79" column="124" selection-start-line="79" selection-start-column="124" selection-end-line="79" selection-end-column="124" />
+            <state relative-caret-position="248">
+              <caret line="69" column="169" selection-start-line="69" selection-start-column="169" selection-end-line="69" selection-end-column="169" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -190,12 +190,12 @@
       <workItem from="1539166911683" duration="6388000" />
       <workItem from="1539184387713" duration="8592000" />
       <workItem from="1539330241644" duration="8383000" />
-      <workItem from="1539345251389" duration="5778000" />
+      <workItem from="1539345251389" duration="7281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32568000" />
+    <option name="totallyTimeSpent" value="34071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
@@ -258,8 +258,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/draw.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="79" column="124" selection-start-line="79" selection-start-column="124" selection-end-line="79" selection-end-column="124" />
+        <state relative-caret-position="248">
+          <caret line="69" column="169" selection-start-line="69" selection-start-column="169" selection-end-line="69" selection-end-column="169" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
